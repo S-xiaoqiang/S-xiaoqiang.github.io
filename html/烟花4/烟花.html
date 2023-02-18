@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+ 
+    <script>
+        var count = document.getElementsByClassName('main');
+        var times0 = document.getElementsByClassName('time');
+        var inputtime = +new Date("2024/01/01 00:00:00");
+        console.log(inputtime);
+ 
+        var timer = null;
+        clearInterval(timer)
+        timer = setInterval(countdown,1000)
+ 
+ 
+        function countdown(){
+            var nowtime = +new Date();
+            
+            var times = parseInt((inputtime - nowtime ) / 1000);
+            
+            if(times >= 0){
+                     
+            var d = parseInt(times/60/60/24);
+            d = d < 10 ? '0' + d : d ;
+ 
+            var h = parseInt(times/60 /60%24);
+            h = h < 10 ? '0' + h : h ;
+ 
+           var m = parseInt(times/60%60);
+            m = m < 10 ? '0' + m : m ;
+ 
+            var s = parseInt(times%60);
+            s = s < 10 ? '0' + s : s ;
+ 
+            times0[0].innerHTML = d;
+            times0[1].innerHTML = h;
+            times0[2].innerHTML = m;
+            times0[3].innerHTML = s;
+            }else{
+                clearInterval(timer)
+            }
+         }               
+    </script>
+ 
+ 
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+ 
+        body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .block{
+            display: inline-block;
+            margin-left: 50px;
+        }
+        .block p{
+            font-size: 40px;
+            color: aliceblue;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .block a{
+            font-size: 20px;
+            color: aliceblue;
+        }
+        #nyc{
+            color: aliceblue;
+            font-size: 50px;
+        }
+ 
+    </style>
+</head>
+ 
+ 
+<body background="img/《The Torch》紫色星云3440x1440壁纸_彼岸图网 拷贝.jpg">
+    <div class="main">
+        <p id="nyc"> New Year Countdown</p>
+        <br>
+        
+        <div class="block">
+            <p class="time">00</p>
+            <a>days</a>
+        </div>
+        <div class="block">
+            <p class="time">00</p>
+            <a>hours</a>
+        </div>
+        <div class="block">
+            <p class="time">00</p>
+            <a>minutes</a>
+        </div>
+        <div class="block">
+            <p class="time">00</p>
+            <a>seconds</a>
+        </div>
+    </div>    
+</body>
+ 
+ 
+</html>
