@@ -1,3 +1,12 @@
+<!--
+	代码中创建了一个 Canvas 对象，通过获取该对象的 context，可以对 Canvas 进行绘制操作。
+使用定时器 animate() 控制动画的刷新率，并使用 requestAnimationFrame() 方法实现动画循环。
+在 initAnimate() 方法中先绘制了背景，然后使用 animate() 方法不断更新 Canvas 的状态，包括刷新背景、星星和烟花的状态，并使用 requestAnimationFrame() 方法不断调用 animate() 方法。
+在点击 Canvas 时，会添加一个新的烟花对象，添加到一个数组 bigbooms 中，然后在 animate() 方法中对该数组进行遍历，更新烟花的位置和状态，实现烟花的动画效果。
+代码中还定义了一个 Boom 对象，用于表示烟花，具体包括烟花的位置、大小、颜色、绘制方式等属性和方法。
+-->
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -7,21 +16,26 @@
 		.city{width:100%;position:fixed;bottom: 0px;z-index: 100;}
 		.city img{width: 100%;}
 	</style>
-	<title>烟花只为你绽放</title>
+	<title>烟花只为你绽放
+		<embed src="https://music.163.com/#/song?id=167679" hidden="true" autostart="true" loop="true"></embed>
+
+	</title>
 </head>
 <body onselectstart = "return false">
 
-<div style="height:700px;overflow:hidden;">
-
+<div style="height:1500px;overflow:visible;">
 	<canvas id='cas' style="background-color:rgba(0,5,24,1);">浏览器不支持canvas</canvas>
 	<div class="city"><img src="img/city.png" alt="" /></div>
 	<img src="img/moon.png" alt="" id="moon" style="visibility: hidden;"/>
 	<div style="display:none">
-		<div class="shape">程程 I LOVE U ♥</div>
-		<div class="shape">大橙子 I MISS YOU</div>
+		<div class="shape">程程 I ♥ U </div>
+		<div class="shape">王艺程最美了</div>
         <div class="shape">I NEED YOU</div>
-        <div class="shape">王艺程最坏了！</div>
-        <div class="shape">王艺程最美了！</div>
+        <div class="shape">王艺程太坏了！</div>
+        <div class="shape">我喜欢的样子你都有</div>
+        <div class="shape">大橙子 I MISS YOU</div>
+        <div class="shape">今晚月色很美</div>
+        <div class="shape">永远在一起</div>
 	</div>
 	
 </div>
@@ -56,7 +70,7 @@
 
 			var newTime = new Date();
             if(newTime-lastTime>500+(window.innerHeight-767)/2){
-				var random = Math.random()*100>2?true:false;
+				var random = Math.random()*100>8?true:false;
 				var x = getRandom(canvas.width/5 , canvas.width*4/5);
 				var y = getRandom(50 , 200);
 				if(random){
