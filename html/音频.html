@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>我们的秘密</title>
+
+	<style type="text/css">
+		html,
+		body{
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		h2{
+			position: fixed;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-family: "楷体","Times New Roman";
+		}
+		#music{
+			position: fixed;
+			left: 50%;
+			top: 8%;
+			transform: translate(-50%,-50%);
+		}
+
+		p{
+			position: fixed;
+			font-size: 30px;
+			left: 50%;
+			top: 34%;
+			transform: translate(-50%,-50%);
+			color: #C7E9FF;
+			font-style: italic;
+			font-family: "楷体","Times New Roman";
+		}
+		#first{
+			position: fixed;
+			left: 50%;
+			top: 20%;
+			transform: translate(-50%,-50%);
+			height: 200px;
+			width: 200px;
+			background-color: red;
+			float:  left;
+			border-radius: 50%;
+		}
+
+	</style>
+</head>
+<body background="imag/ab1.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
+
+	<!-- <audio src="./audio/录音2.mp3" loop="loop" controls="controls"></audio> -->
+
+	<div id="fh5co-content-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="fh5co-testimonial text-center animate-box">
+              <h2 left="50%">癸卯年 乙卯月 丙寅日</h2>        
+              <audio id="music" src="./audio/录音2.mp3" loop controls></audio>
+
+              <figure> 
+              	<img id="first" src="imag/a1.jpg" onClick="play()" alt="user"> 
+              </figure>
+              <blockquote>
+                <p>我栽了一盆花，你只是过来问这叫什么。<br>谁知我结结巴巴，把自己栽在了你身上。</p>
+              </blockquote>
+              <span class="detail"></span>
+              </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- 添加点击图片播放暂停动作 -->
+	<script>
+	window.onload = function(){ 
+	     var audio = document.getElementById('music');
+	         audio.pause();//打开页面时无音乐
+	}
+	function play() {
+	    var audio = document.getElementById('music');
+	    if (audio.paused) {
+	        audio.play();
+	        document.getElementById('musicImg').src="imag/play.png";
+	    }else{
+	        audio.pause();
+	        audio.currentTime = 0;//音乐从头播放
+	        document.getElementById('musicImg').src="imag/stop.png";
+	    }
+	}
+	</script>
+
+
+</body>
+</html>

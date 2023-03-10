@@ -399,6 +399,30 @@
 
 
 
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "情话是我抄的，但我爱你是真的" -->
+  var giteement = new Giteement({
+    id: '20230228101800',
+    owner: 'bertonlang',
+    repo: 'yilia-plus',
+    backcall_uri: 'http://101.200.182.254:80/',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '54ef20ba3593ca2aea4aea6084adc46113caf63e89be38dc5c66f59cb12135a',
+      client_secret: 'bd726322201417e7267abb23316d809a0b7e8950fe4c9730ba993d21aba85408'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
 
 
 
